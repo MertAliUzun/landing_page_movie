@@ -7,8 +7,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Film, Heart, List, PlayCircle, Plus, Smartphone, Star, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
-import  Lottie from 'lottie-react'
 import animationData from '../public/zen_movie_app.json'
+import dynamic from 'next/dynamic';
+
+// Lottie bileşenini SSR'yi devre dışı bırakacak şekilde dinamik olarak yükleyin
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 
 export default function LandingPage() {
