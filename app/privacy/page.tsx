@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <header className="fixed top-0 w-full border-b border-white/10 bg-black/50 backdrop-blur-md z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-xl font-bold">
-            <img src="/logo.png" className="w-auto h-16" alt="Logo" />
+            <img src="/logo.png" className="w-auto h-16 rounded-full" alt="Logo" />
             <span className="hidden sm:block">Zen: Movie Collection</span>
           </Link>
           <div className="flex items-center gap-4">
