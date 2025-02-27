@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Film, Heart, List, PlayCircle, Plus, Smartphone, Star, Instagram, Youtube } from "lucide-react"
 import { motion } from "framer-motion"
+import  Lottie from 'lottie-react'
+import animationData from '../public/zen_movie_app.json'
+
 
 export default function LandingPage() {
   return (
@@ -15,17 +18,18 @@ export default function LandingPage() {
       <header className="fixed top-0 w-full border-b border-white/10 bg-black/50 backdrop-blur-md z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-xl font-bold">
-            <Film className="h-6 w-6" />
-            <span>Zen Movies</span>
+          <img src="/logo.png" className="w-auto h-16"></img>
+          <span className="hidden sm:block"> Zen: Movie Collection</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className="text-sm hover:text-purple-400 transition-colors">
+            <Link href="/privacy" className="text-lg  hover:text-purple-400 transition-colors">
               Privacy
             </Link>
-            <Link href="/login" className="text-sm hover:text-purple-400 transition-colors">
-              Login
-            </Link>
-            <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
+            <Button className="bg-purple-600 hover:bg-purple-700">
+              <a href="https://www.example.com" target="_blank" className="text-white">
+                Get Started
+              </a>
+            </Button>
           </div>
         </div>
       </header>
@@ -39,9 +43,9 @@ export default function LandingPage() {
       >
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
-            Your Personal Movie Collection,
+            Zen: Movie Collection,
             <br />
-            Organized Beautifully
+            <p className="hidden sm:block">Your Personal Movie Collection App</p>
           </h1>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
             Manage your movie collection, create wishlists, and discover new films with an elegant and intuitive
@@ -49,12 +53,16 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-              Download App
+            <a href="https://www.example.com" target="_blank" className="text-white">
+                Download App
+              </a>
               <Smartphone className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-purple-600 text-purple-400 hover:bg-purple-600/10">
+            <Button size="lg" variant="outline" className="border-purple-600  hover:text-white text-purple-400 hover:bg-purple-700">
+              <Link href="/privacy" className="flex">
               Learn More
               <PlayCircle className="ml-2 h-5 w-5" />
+            </Link>
             </Button>
           </div>
         </div>
@@ -92,37 +100,37 @@ export default function LandingPage() {
             <FeatureCard
               icon={<List />}
               title="Organize Collections"
-              description="Create custom collections and categories to organize your movies exactly how you want."
+              description="Save your movies to build your collection and customize your growing collection."
               index={0}
             />
             <FeatureCard
               icon={<Heart />}
               title="Wishlists"
-              description="Keep track of movies you want to watch or add to your collection."
+              description="Keep track of movies you want to watch by adding them to Watch List and rating their hype scores."
               index={1}
             />
             <FeatureCard
               icon={<Star />}
-              title="Rate & Review"
-              description="Rate your movies and write personal reviews to remember what you loved."
+              title="Score & Notes"
+              description="Rate your movies and write personal reviews to remember what you loved and compare with other movies."
               index={2}
             />
             <FeatureCard
               icon={<Plus />}
               title="Easy Adding"
-              description="Quickly add movies by scanning barcodes or searching our extensive database."
+              description="Quickly add movies by searching with movie name or explore to find movies through the app."
               index={3}
             />
             <FeatureCard
               icon={<Smartphone />}
-              title="Cross-Platform"
-              description="Access your collection from any device with our mobile and web apps."
+              title="More than Movies"
+              description="You can also check out director, actor, writer, genre and company pages to find movies related to them."
               index={4}
             />
             <FeatureCard
               icon={<Film />}
-              title="Movie Details"
-              description="Get comprehensive information about your movies, including cast, crew, and more."
+              title="Back-up Restore"
+              description="You can create a CSV file from your collection and use another button to restore your collection from CSV file."
               index={5}
             />
           </motion.div>
@@ -141,7 +149,7 @@ export default function LandingPage() {
         transition={{ duration: 0.8 }}
         className="py-20 bg-purple-950"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -149,10 +157,10 @@ export default function LandingPage() {
             transition={{ delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Beautiful on Every Device</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Learn More</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Whether you're on your phone, tablet, or computer, Zen Movies provides a seamless experience for managing
-              your collection.
+              Zen: Movie Collection is mainly used for managing your movie collections. Both people with physical collections 
+              and people who watches movies digitally will manage those movies with Zen: Movie Collection.
             </p>
           </motion.div>
           <motion.div
@@ -162,50 +170,41 @@ export default function LandingPage() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-video rounded-xl overflow-hidden border border-purple-400/20">
-              <img
-                src="/placeholder.svg?height=720&width=1280"
-                alt="App Preview"
-                className="w-full h-full object-cover"
-              />
+            {/* Masaüstü versiyonu */}
+            <div className="hidden sm:block px-20">
+              <div className="overflow-hidden border border-purple-400/20 rounded-xl">
+                <Lottie 
+                  animationData={animationData} 
+                  loop={true} 
+                  autoplay={true} 
+                  className="w-full"
+                  style={{ height: '600px' }}
+                />
+              </div>
+            </div>
+            
+            {/* Mobil versiyonu */}
+            <div className="sm:hidden overflow-hidden py-20">
+                <Lottie 
+                  animationData={animationData} 
+                  loop={true} 
+                  autoplay={true} 
+                  style={{ 
+                    height: '400px', 
+                    width: '1000px', 
+                    position: 'absolute', 
+                    top: '100%', 
+                    left: '50%', 
+                    transform: 'translate(-50%, -50%)' 
+                  }}
+                />
             </div>
           </motion.div>
         </div>
       </motion.section>
+      <div className="py-10  bg-purple-950"></div>
 
-      {/* CTA Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={{
-          hidden: { opacity: 0, y: 40 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        transition={{ duration: 0.8 }}
-        className="py-20 bg-black"
-      >
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Start Organizing Your Collection Today</h2>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-            Join thousands of movie enthusiasts who use Zen Movies to manage their collections. Get started for free.
-          </p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="max-w-md mx-auto"
-          >
-            <form className="flex gap-2">
-              <Input type="email" placeholder="Enter your email" className="bg-white/5 border-purple-600/50" />
-              <Button type="submit" className="bg-purple-600 hover:bg-purple-700">
-                Get Started
-              </Button>
-            </form>
-          </motion.div>
-        </div>
-      </motion.section>
+    
 
       {/* Social Media Section */}
       <motion.section
@@ -213,8 +212,8 @@ export default function LandingPage() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={{
-          hidden: { opacity: 0, y: 40 },
-          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 1 },
+          visible: { opacity: 40, y: 0 },
         }}
         transition={{ duration: 0.8 }}
         className="py-20 bg-purple-950/50"
@@ -340,89 +339,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-12 border-t border-white/10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-bold mb-4">Product</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Download
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Company</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Careers
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Support</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Terms
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Connect</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Twitter
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Instagram
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    Facebook
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
+          <div className="border-t border-white/10 text-center text-gray-400">
             <p>&copy; {new Date().getFullYear()} Zen Movies. All rights reserved.</p>
           </div>
         </div>
