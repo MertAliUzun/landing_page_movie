@@ -194,7 +194,7 @@ export default function LandingPage() {
                   autoplay={true} 
                   style={{ 
                     height: '400px', 
-                    width: '1000px', 
+                    width: '350px', 
                     position: 'absolute', 
                     top: '100%', 
                     left: '50%', 
