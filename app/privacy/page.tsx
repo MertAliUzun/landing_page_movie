@@ -20,7 +20,7 @@ export default function PrivacyPage() {
               Privacy
             </Link>
             <Button className="bg-purple-600 hover:bg-purple-700">
-              <a href="https://www.example.com" target="_blank" className="text-white">
+              <a href="https://play.google.com/store/apps/details?id=com.mau.zenmoviecollection" target="_blank" className="text-white">
                 Get Started
               </a>
             </Button>

@@ -1,6 +1,7 @@
 "use client"
 
-import type React from "react"
+
+import React, { useRef } from "react"
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -15,6 +16,12 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 
 export default function LandingPage() {
+  const appPreviewRef = useRef<HTMLDivElement>(null);
+
+  const scrollToAppPreview = () => {
+    appPreviewRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
@@ -29,7 +36,7 @@ export default function LandingPage() {
               Privacy
             </Link>
             <Button className="bg-purple-600 hover:bg-purple-700">
-              <a href="https://www.example.com" target="_blank" className="text-white">
+              <a href="https://play.google.com/store/apps/details?id=com.mau.zenmoviecollection" target="_blank" className="text-white">
                 Get Started
               </a>
             </Button>
@@ -61,11 +68,9 @@ export default function LandingPage() {
               </a>
               <Smartphone className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-purple-600  hover:text-white text-purple-400 hover:bg-purple-700">
-              <Link href="/privacy" className="flex">
+            <Button size="lg" variant="outline" className="border-purple-600 hover:text-white text-purple-400 hover:bg-purple-700" onClick={scrollToAppPreview}>
               Learn More
               <PlayCircle className="ml-2 h-5 w-5" />
-            </Link>
             </Button>
           </div>
         </div>
@@ -142,6 +147,7 @@ export default function LandingPage() {
 
       {/* App Preview Section */}
       <motion.section
+        ref={appPreviewRef}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
