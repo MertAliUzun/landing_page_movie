@@ -6,7 +6,7 @@ import React, { useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Film, Heart, List, PlayCircle, Plus, Smartphone, Star, Instagram, Youtube } from "lucide-react"
+import { Film, Heart, List, PlayCircle, Plus, Smartphone, Star, Instagram, Youtube, InfoIcon } from "lucide-react"
 import { motion } from "framer-motion"
 import animationData from '../public/zen_movie_app.json'
 import dynamic from 'next/dynamic';
@@ -32,9 +32,6 @@ export default function LandingPage() {
           <span className="hidden sm:block"> Zen: Movie Collection</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className="text-lg  hover:text-purple-400 transition-colors">
-              Privacy
-            </Link>
             <Button className="bg-purple-600 hover:bg-purple-700">
               <a href="https://play.google.com/store/apps/details?id=com.mau.zenmoviecollection" target="_blank" className="text-white">
                 Get Started
@@ -63,7 +60,7 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-            <a href="https://www.example.com" target="_blank" className="text-white">
+            <a href="https://play.google.com/store/apps/details?id=com.mau.zenmoviecollection" target="_blank" className="text-white">
                 Download App
               </a>
               <Smartphone className="ml-2 h-5 w-5" />
@@ -166,11 +163,26 @@ export default function LandingPage() {
             transition={{ delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Learn More</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Zen: Movie Collection is mainly used for managing your movie collections. Both people with physical collections 
-              and people who watches movies digitally will manage those movies with Zen: Movie Collection.
-            </p>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className=" gap-8 items-center"
+            style={{ width: '50%' }}
+          >
+            <FeatureCard
+              icon={<InfoIcon  />}
+              title="Learn More"
+              description="Zen: Movie Collection is mainly used for managing your movie collections. Both people with physical collections 
+              and people who watches movies digitally will manage those movies with Zen: Movie Collection."
+              index={5}
+            />
+          </motion.div>
+          </div>
+            
+            
           </motion.div>
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
@@ -246,12 +258,13 @@ export default function LandingPage() {
                   <Instagram className="w-8 h-8" />
                   <div>
                     <h3 className="font-bold">Instagram</h3>
-                    <p className="text-sm text-gray-200">@zenmovies</p>
+                    <p className="text-sm text-gray-200">@zenmoviecollection</p>
                   </div>
                 </div>
                 <p className="text-sm mb-4">
                   Daily aesthetic shots of movie collections and behind-the-scenes peeks 📸
                 </p>
+                {/*
                 <div className="flex items-center gap-4 mb-4">
                   <div>
                     <p className="font-bold">50K+</p>
@@ -262,7 +275,12 @@ export default function LandingPage() {
                     <p className="text-xs text-gray-200">Posts</p>
                   </div>
                 </div>
-                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors">Follow on Instagram</Button>
+                */}
+                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-14">
+                <a href="https://www.instagram.com/zenmoviecollection/" target="_blank" className="text-white">
+                Follow on Instagram
+              </a>
+                </Button>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 group-hover:from-black/70 transition-colors" />
               <img
@@ -284,10 +302,11 @@ export default function LandingPage() {
                   </svg>
                   <div>
                     <h3 className="font-bold">TikTok</h3>
-                    <p className="text-sm text-gray-200">@zenmovies</p>
+                    <p className="text-sm text-gray-200">@zenmoviecollection</p>
                   </div>
                 </div>
                 <p className="text-sm mb-4">Quick tips, collection showcases, and trending movie discussions 🎬</p>
+                {/*
                 <div className="flex items-center gap-4 mb-4">
                   <div>
                     <p className="font-bold">100K+</p>
@@ -298,7 +317,12 @@ export default function LandingPage() {
                     <p className="text-xs text-gray-200">Videos</p>
                   </div>
                 </div>
-                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors">Follow on TikTok</Button>
+                */}
+                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-14">
+                <a href="https://www.tiktok.com/@zenmoviecollection" target="_blank" className="text-white">
+                Follow on TikTok
+              </a>
+                </Button>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 group-hover:from-black/70 transition-colors" />
               <img
@@ -318,10 +342,11 @@ export default function LandingPage() {
                   <Youtube className="w-8 h-8" />
                   <div>
                     <h3 className="font-bold">YouTube</h3>
-                    <p className="text-sm text-gray-200">Zen Movies</p>
+                    <p className="text-sm text-gray-200">@ZenMovieCollection</p>
                   </div>
                 </div>
                 <p className="text-sm mb-4">In-depth reviews, collection tours, and organization guides 🎥</p>
+                {/*
                 <div className="flex items-center gap-4 mb-4">
                   <div>
                     <p className="font-bold">75K+</p>
@@ -332,7 +357,12 @@ export default function LandingPage() {
                     <p className="text-xs text-gray-200">Videos</p>
                   </div>
                 </div>
-                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors">Subscribe on YouTube</Button>
+                */}
+                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-14">
+                <a href="https://www.youtube.com/@ZenMovieCollection" target="_blank" className="text-white">
+                Subscribe on YouTube
+              </a>
+                </Button>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 group-hover:from-black/70 transition-colors" />
               <img
