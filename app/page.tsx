@@ -6,7 +6,7 @@ import React, { useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Film, Heart, List, PlayCircle, Plus, Smartphone, Star, Instagram, Youtube, InfoIcon } from "lucide-react"
+import { Film, Heart, List, PlayCircle, Plus, Minus, Smartphone, Star, Instagram, Youtube, InfoIcon } from "lucide-react"
 import { motion } from "framer-motion"
 import animationData from '../public/zen_movie_app.json'
 import dynamic from 'next/dynamic';
@@ -46,29 +46,86 @@ export default function LandingPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="pt-32 pb-20 px-4"
+        className="pt-32 pb-20 px-4 md:px-12 lg:px-20"
       >
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
-            Zen: Movie Collection,
-            <br />
-            <p className="hidden sm:block">Your Personal Movie Collection App</p>
-          </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Manage your movie collection, create wishlists, and discover new films with an elegant and intuitive
-            interface.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-            <a href="https://play.google.com/store/apps/details?id=com.mau.zenmoviecollection" target="_blank" className="text-white">
-                Download App
-              </a>
-              <Smartphone className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-purple-600 hover:text-white text-purple-400 hover:bg-purple-700" onClick={scrollToAppPreview}>
-              Learn More
-              <PlayCircle className="ml-2 h-5 w-5" />
-            </Button>
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Sol taraf - İçerik */}
+            <div className="flex-1 space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+                Zen: Movie Collection
+              </h1>
+              
+              <p className="text-xl text-gray-400">
+              Manage your movie collection effortlessly, discover new films, and build your watchlist. Organize your favorites, explore, and expand your collection with this app!
+              </p>
+              
+              <div className="space-y-4 mt-8">
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 p-1 rounded-full mt-1">
+                    <Minus className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-gray-300">Get movie recommendations from AI</p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 p-1 rounded-full mt-1">
+                    <Minus className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-gray-300">Discover movies with latest, upcoming and popular sections</p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 p-1 rounded-full mt-1">
+                    <Minus className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-gray-300">Guide for where to watch the movie (Stream, Buy, Rent)</p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 p-1 rounded-full mt-1">
+                    <Minus className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-gray-300">Find movies in same series and similar movies easily</p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 p-1 rounded-full mt-1">
+                    <Minus className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-gray-300">Movies can be exported to and imported from Excel files</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                <Button size="lg" className="bg-purple-600 hover:bg-purple-700 w-full sm:w-auto">
+                  <a href="https://play.google.com/store/apps/details?id=com.mau.zenmoviecollection" target="_blank" className="text-white">
+                    Get Started
+                  </a>
+                  <Smartphone className="ml-2 h-5 w-5" />
+                </Button>
+                <Button size="lg" variant="outline" className="border-purple-600 hover:text-white text-purple-400 hover:bg-purple-700 w-full sm:w-auto" onClick={scrollToAppPreview}>
+                  Learn More
+                  <PlayCircle className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+            
+            {/* Sağ taraf - Görsel */}
+            <div className="flex-1 flex justify-center md:justify-end mt-16 md:mt-0">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="w-auto h-auto max-w-[280px] md:max-w-[480px]"
+              >
+                <img 
+                  src="/zen_movie_app.png" 
+                  alt="Zen Movie App" 
+                  className="w-full h-auto rounded-xl object-cover shadow-lg"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -135,7 +192,7 @@ export default function LandingPage() {
             <FeatureCard
               icon={<Film />}
               title="Back-up Restore"
-              description="You can create a CSV file from your collection and use another button to restore your collection from CSV file."
+              description="You can create a Excel file from your collection and restore your collection from that Excel file."
               index={5}
             />
           </motion.div>
@@ -172,13 +229,6 @@ export default function LandingPage() {
             className=" gap-8 items-center"
             style={{ width: '50%' }}
           >
-            <FeatureCard
-              icon={<InfoIcon  />}
-              title="Learn More"
-              description="Zen: Movie Collection is mainly used for managing your movie collections. Both people with physical collections 
-              and people who watches movies digitally will manage those movies with Zen: Movie Collection."
-              index={5}
-            />
           </motion.div>
           </div>
             
