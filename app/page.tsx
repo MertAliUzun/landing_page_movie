@@ -46,7 +46,7 @@ export default function LandingPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="pt-32 pb-20 px-4 md:px-12 lg:px-20"
+        className="pt-24 pb-10 px-4 md:px-12 lg:px-20"
       >
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -140,7 +140,7 @@ export default function LandingPage() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 40 },
         }}
-        className="py-20 bg-gradient-to-b from-black to-purple-950"
+        className=" bg-gradient-to-b from-black to-purple-950"
       >
         <div className="container mx-auto px-4">
           <motion.h2
@@ -312,7 +312,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <p className="text-sm mb-4">
-                  Daily aesthetic shots of movie collections and behind-the-scenes peeks 📸
+                Follow us on Instagram for daily videos 🎬
                 </p>
                 {/*
                 <div className="flex items-center gap-4 mb-4">
@@ -355,7 +355,7 @@ export default function LandingPage() {
                     <p className="text-sm text-gray-200">@zenmoviecollection</p>
                   </div>
                 </div>
-                <p className="text-sm mb-4">Quick tips, collection showcases, and trending movie discussions 🎬</p>
+                <p className="text-sm mb-4">Follow us on Tiktok for daily videos 🎬</p>
                 {/*
                 <div className="flex items-center gap-4 mb-4">
                   <div>
@@ -395,7 +395,7 @@ export default function LandingPage() {
                     <p className="text-sm text-gray-200">@ZenMovieCollection</p>
                   </div>
                 </div>
-                <p className="text-sm mb-4">In-depth reviews, collection tours, and organization guides 🎥</p>
+                <p className="text-sm mb-4">Follow us on Youtube for daily videos 🎬</p>
                 {/*
                 <div className="flex items-center gap-4 mb-4">
                   <div>
