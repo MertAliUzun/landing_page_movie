@@ -261,12 +261,13 @@ export default function LandingPage() {
                   loop={true} 
                   autoplay={true} 
                   style={{ 
-                    height: '400px', 
-                    width: '350px', 
+                    height: '800px', 
+                    width: '700px', 
                     position: 'absolute', 
                     top: '100%', 
                     left: '50%', 
-                    transform: 'translate(-50%, -50%)' 
+                    transform: 'translate(-50%, -50%)',
+                    overflow: 'hidden'
                   }}
                 />
             </div>
@@ -426,9 +427,9 @@ export default function LandingPage() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/10">
+      <footer className="border-t border-white/10">
         <div className="container mx-auto px-4">
-          <div className="border-t border-white/10 text-center text-gray-400">
+          <div className="border-t py-5 border-white/10 text-center text-gray-400">
             <p>&copy; {new Date().getFullYear()} Zen Movies. All rights reserved.</p>
           </div>
         </div>
