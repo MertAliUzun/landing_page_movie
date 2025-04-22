@@ -26,7 +26,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <header className="fixed top-0 w-full border-b border-white/10 bg-black/50 backdrop-blur-md z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between lg:px-48">
           <Link href="/" className="flex items-center gap-2 text-xl font-bold">
           <img src="/logo.png" className="w-auto h-16 rounded-full"></img>
           <span className="hidden sm:block"> Zen: Movie Collection</span>
