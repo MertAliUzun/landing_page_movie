@@ -210,7 +210,7 @@ export default function LandingPage() {
           visible: { opacity: 1 },
         }}
         transition={{ duration: 0.8 }}
-        className="py-20 bg-purple-950"
+        className="py-20 bg-purple-950 overflow-hidden"
       >
         <div className="container mx-auto px-4 pb-20">
           <motion.div
@@ -255,7 +255,7 @@ export default function LandingPage() {
             </div>
             
             {/* Mobil versiyonu */}
-            <div className="sm:hidden overflow-hidden py-20">
+            <div className="sm:hidden overflow-hidden pt-96">
                 <Lottie 
                   animationData={animationData} 
                   loop={true} 
@@ -264,7 +264,7 @@ export default function LandingPage() {
                     height: '800px', 
                     width: '700px', 
                     position: 'absolute', 
-                    top: '100%', 
+                    top: '50%', 
                     left: '50%', 
                     transform: 'translate(-50%, -50%)',
                     overflow: 'hidden'
