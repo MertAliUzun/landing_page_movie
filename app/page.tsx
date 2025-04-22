@@ -313,7 +313,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <p className="text-sm mb-4">
-                Follow us on Instagram for daily videos 🎬
+                Follow Zen: Movie Collection on Instagram for daily videos 🎬
                 </p>
                 {/*
                 <div className="flex items-center gap-4 mb-4">
@@ -327,7 +327,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 */}
-                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-14">
+                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-5">
                 <a href="https://www.instagram.com/zenmoviecollection/" target="_blank" className="text-white">
                 Follow on Instagram
               </a>
@@ -356,7 +356,7 @@ export default function LandingPage() {
                     <p className="text-sm text-gray-200">@zenmoviecollection</p>
                   </div>
                 </div>
-                <p className="text-sm mb-4">Follow us on Tiktok for daily videos 🎬</p>
+                <p className="text-sm mb-4">Follow Zen: Movie Collectio on Tiktok for daily videos 🎬</p>
                 {/*
                 <div className="flex items-center gap-4 mb-4">
                   <div>
@@ -369,7 +369,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 */}
-                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-14">
+                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-5">
                 <a href="https://www.tiktok.com/@zenmoviecollection" target="_blank" className="text-white">
                 Follow on TikTok
               </a>
@@ -396,7 +396,7 @@ export default function LandingPage() {
                     <p className="text-sm text-gray-200">@ZenMovieCollection</p>
                   </div>
                 </div>
-                <p className="text-sm mb-4">Follow us on Youtube for daily videos 🎬</p>
+                <p className="text-sm mb-4">Follow Zen: Movie Collectio on Youtube for daily videos 🎬</p>
                 {/*
                 <div className="flex items-center gap-4 mb-4">
                   <div>
@@ -409,7 +409,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 */}
-                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-14">
+                <Button className="w-full bg-white/10 hover:bg-white/20 transition-colors mt-5">
                 <a href="https://www.youtube.com/@ZenMovieCollection" target="_blank" className="text-white">
                 Subscribe on YouTube
               </a>
