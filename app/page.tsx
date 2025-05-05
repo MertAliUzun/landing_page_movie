@@ -10,6 +10,8 @@ import { Film, Heart, List, PlayCircle, Plus, Minus, Smartphone, Star, Instagram
 import { motion } from "framer-motion"
 import animationData from '../public/zen_movie_app.json'
 import dynamic from 'next/dynamic';
+import VideoCarousel from "./components/VideoCarousel"
+import { videos } from "./data/videos"
 
 // Lottie bileşenini SSR'yi devre dışı bırakacak şekilde dinamik olarak yükleyin
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
@@ -276,7 +278,26 @@ export default function LandingPage() {
       </motion.section>
       <div className="py-10  bg-purple-950"></div>
 
-    
+      {/* Video Gallery Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.8 }}
+        className="py-20 bg-gradient-to-b from-purple-950 to-purple-950/80"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Check our Latest Videos</h2>
+          </div>
+
+          <VideoCarousel videos={videos} />
+        </div>
+      </motion.section>
 
       {/* Social Media Section */}
       <motion.section
