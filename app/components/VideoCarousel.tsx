@@ -62,7 +62,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
         {totalPages > 1 && (
           <button
             onClick={prevPage}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-purple-600/80 hover:bg-purple-700 text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 border border-purple-400/30"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-purple-600/80 hover:bg-purple-700 text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 border border-purple-400/30"
             aria-label="Previous"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -88,7 +88,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
                   key={video.id}
                   className="p-2 transition-all duration-300 h-full"
                 >
-                  <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/40 rounded-xl overflow-hidden border border-purple-400/20 hover:border-purple-400/50 transition-all duration-300 shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1 group h-full flex flex-col">
+                  <div className="bg-black bg-gradient-to-br from-purple-900/30 to-purple-800/40 rounded-xl overflow-hidden border border-purple-400/20 hover:border-purple-400/50 transition-all duration-300 shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1 group h-full flex flex-col">
                     <div className="aspect-video relative flex-grow" style={{ minHeight: "300px" }}>
                       <iframe
                         src={video.embedUrl}
@@ -99,7 +99,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
                       ></iframe>
                     </div>
                     <div className="p-5 h-16 flex items-center">
-                      <h3 className="text-lg font-medium text-white group-hover:text-purple-300 transition-colors truncate overflow-hidden whitespace-nowrap" title={video.title}>{video.title}</h3>
+                      <h2 className="text-base pr-2 font-semibold text-white/70 tracking-wide">Title:  </h2><h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors truncate overflow-hidden whitespace-nowrap" title={video.title}>{video.title}</h3>
                     </div>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
         {totalPages > 1 && (
           <button
             onClick={nextPage}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-purple-600/80 hover:bg-purple-700 text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 border border-purple-400/30"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-purple-600/80 hover:bg-purple-700 text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 border border-purple-400/30"
             aria-label="Next"
           >
             <ChevronRight className="h-6 w-6" />
